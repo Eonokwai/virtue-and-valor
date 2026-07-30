@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtue & Valor LLC</title>
+    <title>Virtue & Valor LLC | Government Contracting & Advisory</title>
     <style>
         :root {
             --primary: #1a252f;
             --accent: #b89742;
             --light: #f8f9fa;
-            --dark: #111;
+            --dark: #111111;
+            --gray: #eef1f4;
+            --text-muted: #555555;
         }
         
         * {
@@ -17,6 +19,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,18 +28,24 @@
             line-height: 1.6;
         }
 
+        /* Navigation */
         header {
             background-color: var(--primary);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
             color: white;
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .logo h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             letter-spacing: 1px;
         }
 
@@ -49,6 +58,9 @@
             text-decoration: none;
             margin-left: 2rem;
             font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
@@ -56,49 +68,208 @@
             color: var(--accent);
         }
 
+        /* Hero View */
         .hero {
-            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(17, 17, 17, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') no-repeat center center/cover;
-            height: 60vh;
+            background: linear-gradient(rgba(26, 37, 47, 0.88), rgba(17, 17, 17, 0.92)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') no-repeat center center/cover;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0 1rem;
+            padding: 0 2rem;
+            margin-top: 70px;
         }
 
         .hero h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
+            font-size: 1.3rem;
+            max-width: 800px;
             color: #ccc;
+            margin-bottom: 2rem;
         }
 
-        .leadership {
-            padding: 5rem 5%;
+        .cta-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Generic Section Styling */
+        section {
+            padding: 6rem 8% 5rem;
+        }
+
+        .section-title {
             text-align: center;
-        }
-
-        .leadership h2 {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             font-size: 2.5rem;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .leadership h2::after {
+        .section-title::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 60px;
             height: 3px;
             background-color: var(--accent);
             margin: 10px auto 0;
         }
 
+        /* Corporate Identity Profile */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .identity-block {
+            background: white;
+            padding: 3rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-radius: 4px;
+        }
+
+        .identity-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Expertise Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s, border-top-color 0.3s;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .expertise-card ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .expertise-card li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .expertise-card li::before {
+            content: "▪";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Capability Statement Layout (Z-Format Architecture) */
+        .capability-box {
+            background: white;
+            border: 2px solid #ddd;
+            border-top: 8px solid var(--primary);
+            padding: 3.5rem;
+            border-radius: 4px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+        }
+
+        .cap-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cap-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .cage-info {
+            text-align: right;
+            background: var(--gray);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .z-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 3.5rem;
+        }
+
+        .competencies h4, .differentiators h4, .naics-box h4 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        .naics-list {
+            list-style: none;
+        }
+
+        .naics-list li {
+            margin-bottom: 0.8rem;
+            background: var(--gray);
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .naics-list strong {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 1.05rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Leadership Cards */
         .team-grid {
             display: flex;
             justify-content: center;
@@ -111,9 +282,10 @@
             padding: 2.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            width: 320px;
+            width: 340px;
             border-top: 5px solid var(--primary);
             transition: transform 0.3s;
+            text-align: center;
         }
 
         .card:hover {
@@ -123,7 +295,7 @@
 
         .card h3 {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .role {
@@ -148,45 +320,186 @@
 
         .email-btn:hover {
             background-color: var(--accent);
+            color: var(--dark);
         }
 
+        /* Footer */
         footer {
             background-color: var(--dark);
-            color: #777;
+            color: #888;
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             font-size: 0.9rem;
+            border-top: 3px solid var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .profile-container, .z-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header / Navigation Tabs -->
     <header>
         <div class="logo">
             <h1>Virtue <span>&</span> Valor</h1>
         </div>
         <nav>
             <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#capability">Capabilities</a>
             <a href="#leadership">Leadership</a>
-            <a href="#contact">Contact</a>
         </nav>
     </header>
 
+    <!-- Hero View -->
     <section class="hero">
-        <h2>Integrity in Excellence</h2>
-        <p>Leading with virtue, delivering with valor. We provide strategic solutions built on a foundation of trust and robust execution.</p>
+        <h2>Strategic Solutions. Mission-Critical Execution.</h2>
+        <p>Virtue & Valor LLC delivers elite financial advisory, accounting services, and robust facilities infrastructure management under prime and subcontract framework agreements.</p>
+        <a href="#capability" class="cta-btn">View Capability Statement</a>
     </section>
 
-    <section class="leadership" id="leadership">
-        <h2>Executive Leadership</h2>
+    <!-- About Section (Mission/Vision) -->
+    <section id="about" style="background-color: white;">
+        <h2 class="section-title">Corporate Profile</h2>
+        <div class="profile-container">
+            <div class="identity-block">
+                <h3>Our Mission</h3>
+                <p>To deliver uncompromising professional services, transparent analytical reporting, and resilient facilities infrastructure support to state, municipal, and federal agencies by aligning elite human capital with rigorous regulatory oversight.</p>
+            </div>
+            <div class="identity-block">
+                <h3>Our Vision</h3>
+                <p>To establish Virtue & Valor LLC as a benchmark enterprise in government contracting, universally recognized for operational agility, ironclad contract compliance, and unyielding fiduciary accountability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" style="background-color: var(--gray);">
+        <h2 class="section-title">Areas of Expertise</h2>
+        <div class="grid-3">
+            <div class="expertise-card">
+                <h3>Accounting & Auditing</h3>
+                <p>Delivering high-fidelity financial governance and compliance reporting across complex administrative entities.</p>
+                <ul>
+                    <li>Municipal & Statutory Auditing</li>
+                    <li>Fiduciary Internal Controls</li>
+                    <li>GAAP & Operational Accounting</li>
+                </ul>
+            </div>
+            <div class="expertise-card">
+                <h3>Corporate & Public Finance</h3>
+                <p>Providing data-driven analytics to maximize project yields and ensure long-term balance sheet stability.</p>
+                <ul>
+                    <li>Budget Formulation & Forecasting</li>
+                    <li>Capital Allocation Analytics</li>
+                    <li>Variance & Macro Economic Analysis</li>
+                </ul>
+            </div>
+            <div class="expertise-card">
+                <h3>Business & Facility Management</h3>
+                <p>Deploying a secure, asset-light Broker Model to direct heavy projects within strict timelines and regulatory boundaries.</p>
+                <ul>
+                    <li>FAR & Cross-Agency Compliance</li>
+                    <li>Subcontractor Performance Oversight</li>
+                    <li>Integrated Project Lifecycle Control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capability Statement Section -->
+    <section id="capability" style="background-color: white;">
+        <h2 class="section-title">Capability Statement</h2>
+        <div class="capability-box">
+            <div class="cap-header">
+                <div>
+                    <h3>Virtue & Valor LLC</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.3rem;">Professional Services & Infrastructure Management</p>
+                </div>
+                <div class="cage-info">
+                    SAM.gov Registered | Socio-Economic Identifiers Available
+                </div>
+            </div>
+
+            <div class="z-grid">
+                <!-- Left Column (Core and Differentiators) -->
+                <div>
+                    <div class="competencies" style="margin-bottom: 2.5rem;">
+                        <h4>Core Competencies</h4>
+                        <p style="margin-bottom: 1rem; color: var(--text-muted);">Virtue & Valor LLC provides specialized professional management consulting and commercial infrastructure support. We efficiently scale service delivery using rigorous oversight and vetted independent professionals.</p>
+                        <div class="grid-3" style="gap: 1.5rem; min-width: 100%;">
+                            <ul style="list-style-type: square; padding-left: 1.2rem; color: var(--text-muted);">
+                                <li>Financial Auditing Support</li>
+                                <li>Budget Administration</li>
+                            </ul>
+                            <ul style="list-style-type: square; padding-left: 1.2rem; color: var(--text-muted);">
+                                <li>Management Consulting</li>
+                                <li>Facilities Maintenance</li>
+                            </ul>
+                            <ul style="list-style-type: square; padding-left: 1.2rem; color: var(--text-muted);">
+                                <li>Institutional Renovations</li>
+                                <li>FAR Compliance Management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="differentiators">
+                        <h4>Key Differentiators</h4>
+                        <ul style="list-style-type: disc; padding-left: 1.2rem; color: var(--text-muted);">
+                            <li style="margin-bottom: 0.6rem;"><strong>Zero-Overhead Efficiency:</strong> Highly lean operating model directing resource allocation strictly into service delivery.</li>
+                            <li style="margin-bottom: 0.6rem;"><strong>Scalable Professional Networks:</strong> Immediate access to independent CPAs and highly vetted local trade experts.</li>
+                            <li style="margin-bottom: 0.6rem;"><strong>Strategic Synergy:</strong> Elite financial planning expertise applied directly to field general contracting ensures project delivery on schedule and under budget.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column (NAICS Data Panels) -->
+                <div>
+                    <div class="naics-box">
+                        <h4>Primary NAICS Codes</h4>
+                        <ul class="naics-list">
+                            <li><strong>541219</strong> Other Accounting Services</li>
+                            <li><strong>541611</strong> Admin & General Management Consulting</li>
+                            <li><strong>236220</strong> Commercial & Institutional Building</li>
+                            <li><strong>561210</strong> Facilities Support Services</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="company-data" style="margin-top: 2rem; background: var(--gray); padding: 1.5rem; border-radius: 4px;">
+                        <h5 style="text-transform: uppercase; margin-bottom: 0.5rem; color: var(--primary);">Corporate Data</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.8;">
+                            <strong>Legal Entity:</strong> Virtue & Valor LLC<br>
+                            <strong>Structure:</strong> Limited Liability Company<br>
+                            <strong>Geographic Scope:</strong> Federal, State, and Municipal Bids
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Leadership Section -->
+    <section id="leadership" style="background-color: var(--gray);">
+        <h2 class="section-title">Executive Leadership</h2>
         <div class="team-grid">
             
             <!-- CEO Card -->
             <div class="card">
                 <h3>Emmanuel Onokwai</h3>
                 <div class="role">Chief Executive Officer</div>
-                <p style="margin-bottom: 1.5rem; color: #666;">Steering the strategic vision and long-term growth of Virtue & Valor LLC.</p>
-                <!-- UPDATED CEO EMAIL LINK BELOW -->
+                <p style="margin-bottom: 1.5rem; color: #666; font-size: 0.95rem;">Directs programmatic scaling, commercial architecture proposal writing, macro financial management, and ultimate organizational compliance.</p>
                 <a href="mailto:emmanuel.onokwai@virtueandvalorllc.com" class="email-btn">Contact CEO</a>
             </div>
 
@@ -194,16 +507,16 @@
             <div class="card">
                 <h3>Harriet Onokwai</h3>
                 <div class="role">Chief Operating Officer</div>
-                <p style="margin-bottom: 1.5rem; color: #666;">Overseeing operational excellence and executing business strategies daily.</p>
-                <!-- UPDATED COO EMAIL LINK BELOW -->
+                <p style="margin-bottom: 1.5rem; color: #666; font-size: 0.95rem;">Oversees daily tactical workflows, subcontractor field verification protocols, resource scheduling, and end-to-end deliverables control.</p>
                 <a href="mailto:harriet.onokwai@virtueandvalorllc.com" class="email-btn">Contact COO</a>
             </div>
 
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Virtue & Valor LLC. All rights reserved.</p>
+        <p>&copy; 2026 Virtue & Valor LLC. All rights reserved. | Proprietary B2G Architecture</p>
     </footer>
 
 </body>
