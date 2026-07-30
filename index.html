@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtue & Valor LLC</title>
+    <style>
+        :root {
+            --primary: #1a252f;
+            --accent: #b89742;
+            --light: #f8f9fa;
+            --dark: #111;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(17, 17, 17, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        .leadership {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .leadership h2 {
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .leadership h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 320px;
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .email-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .email-btn:hover {
+            background-color: var(--accent);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: #777;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Virtue <span>&</span> Valor</h1>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Integrity in Excellence</h2>
+        <p>Leading with virtue, delivering with valor. We provide strategic solutions built on a foundation of trust and robust execution.</p>
+    </section>
+
+    <section class="leadership" id="leadership">
+        <h2>Executive Leadership</h2>
+        <div class="team-grid">
+            
+            <!-- CEO Card -->
+            <div class="card">
+                <h3>Emmanuel Onokwai</h3>
+                <div class="role">Chief Executive Officer</div>
+                <p style="margin-bottom: 1.5rem; color: #666;">Steering the strategic vision and long-term growth of Virtue & Valor LLC.</p>
+                <!-- UPDATED CEO EMAIL LINK BELOW -->
+                <a href="mailto:emmanuel.onokwai@virtueandvalorllc.com" class="email-btn">Contact CEO</a>
+            </div>
+
+            <!-- COO Card -->
+            <div class="card">
+                <h3>Harriet Onokwai</h3>
+                <div class="role">Chief Operating Officer</div>
+                <p style="margin-bottom: 1.5rem; color: #666;">Overseeing operational excellence and executing business strategies daily.</p>
+                <!-- UPDATED COO EMAIL LINK BELOW -->
+                <a href="mailto:harriet.onokwai@virtueandvalorllc.com" class="email-btn">Contact COO</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Virtue & Valor LLC. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
