@@ -44,13 +44,53 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
+        /* Dynamic Crest Logo Styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-crest {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+            color: var(--accent);
+            background: linear-gradient(135deg, rgba(184, 151, 66, 0.1), rgba(0,0,0,0));
+            box-shadow: inset 0 0 5px rgba(184, 151, 66, 0.2);
+        }
+
         .logo h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
         }
 
         .logo span {
             color: var(--accent);
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            text-transform: lowercase;
+            font-weight: 400;
+            margin: 0 2px;
+        }
+        
+        .logo-subtext {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #888;
+            margin-top: 0.2rem;
+            display: block;
         }
 
         nav a {
@@ -352,8 +392,13 @@
 
     <!-- Header / Navigation Tabs -->
     <header>
-        <div class="logo">
-            <h1>Virtue <span>&</span> Valor</h1>
+        <div class="logo-container">
+            <!-- Stylized Geometric V&V Corporate Crest -->
+            <div class="logo-crest">V</div>
+            <div class="logo">
+                <h1>Virtue <span>&</span> Valor</h1>
+                <span class="logo-subtext">Government Advisory</span>
+            </div>
         </div>
         <nav>
             <a href="#about">About</a>
